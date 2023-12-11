@@ -1,0 +1,83 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/shop_main_page.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'shop/css/shop_main_page.css' %}">#}
+{% endblock %}
+
+{% block title %}Главная{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="main-banner">
+            <div class="banner-info">
+                <h1 class="banner-title">Новые поступления в этом сезоне</h1>
+                <p class="banner-text"> Стильные кроссовки - вот то, что вы искали в этом сезоне.
+                    Время исследовать !</p>
+                <div class="buttons">
+                    <a href="#products" class="btn-arrow"><span class="material-symbols-outlined">south</span></a>
+                    <a href="{% url 'shop' %}" class="btn-text">Открыть магазин</a>
+                </div>
+            </div>
+            <div class="banner-photo">
+                <img src="{% static 'img/кроссовки.png' %}" alt="coat" class="img-coat">
+            </div>
+        </div>
+        <h2 class="banner-subtitle" id="products">Новая коллекция</h2>
+        <div class="banner">
+            <div class="products margin-null">
+                {% for product in products %}
+                    <div class="card">
+                        <img src="{{ product.image_url }}" alt="{{ product.title }}" class="card-img">
+                        <div class="effect-to-right">
+                            <a href="{% url 'one-item' category_slug=product.category.slug prod_slug=product.slug %}"
+                               class="link-effect"> <span
+                                    class="material-symbols-outlined size-40">arrow_right_alt</span>
+                            </a>
+                        </div>
+                        <!-- Нижняя часть -->
+                        <div class="card-bottom">
+                            <a href="{{ products.get_url }}" class="card-title">{{ product.title }}</a>
+                            <ul class="card-prices">
+                                <li class="dollar">{{ product.price }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <a href="{% url 'shop' %}" class="btn-transparent"> Открыть магазин</a>
+        </div>
+        <h2>Что для нас важно</h2>
+        <div class="banner products">
+            <div>
+                <img src="{% static 'img/quality.svg' %}" alt="Качество" class="info-sign">
+                <h3>Качество</h3>
+            </div>
+            <div>
+                <img src="{% static 'img/speed.svg' %}" alt="Скорость" class="info-sign speed">
+                <h3>Скорость</h3>
+            </div>
+            <div>
+                <img src="{% static 'img/responsibility.svg' %}" alt="Ответственность" class="info-sign">
+                <h3>Ответственность</h3>
+            </div>
+        </div>
+        <h2>Команда мечты CROSBOX</h2>
+        <div class="banner command-info">
+            <img src="{% static 'img/магазин3.jpg' %}" alt="Команда CROSBOX" class="magazin">
+            <div class="command-text">
+                <h3 class="dlya">Для каждого</h3>
+                <ul>
+                    <li class="command-item">Каждый человек уникален. Однако, мы схожи в стиле.</li>
+                    <li class="command-item"> На CROSBOX ты подберешь кроссовки, которые дополнят твой стиль.
+                    </li>
+                </ul>
+                <a href="{% url 'about-brand' %}" class="about-brand">Подробнее о нас</a>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}

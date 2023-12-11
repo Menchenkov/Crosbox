@@ -1,0 +1,72 @@
+.banner-idea-woman {
+    display: flex;
+    flex-direction: row;
+    margin-top: 135px;
+    border: 2px solid #6E9C9F;
+    border-radius: 10px;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+  from {
+    border-color: #6E9C9F;
+    box-shadow: 0 0 10px #6E9C9F, 0 0 20px #6E9C9F, 0 0 30px #6E9C9F, 0 0 40px #6E9C9F, 0 0 50px #6E9C9F;
+  }
+  to {
+    border-color: #6E9C9F;
+    box-shadow: none;
+  }
+}
+
+
+
+
+
+.about-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 45px;
+    font-size: 18px;
+
+}
+
+.banner-about-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*margin-left: 30px;*/
+
+}
+
+.banner-idea-txt {
+    margin-bottom: 26px;
+    color: #48cfad;
+    margin-left: 30px;
+
+}
+
+.banner-about-founder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 100px;
+
+
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#title_3{
+    color: #ffffff;
+    font-weight: 600;
+    margin-left: 30px;
+    margin-top: 30px;
+
+}
+
+
